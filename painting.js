@@ -1,3 +1,6 @@
+const colors = ["red", "green", "blue", "yellow", "orange"];
+const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
 window.addEventListener("load", () => {
   const canvas = document.getElementById("canvas");
   environment = canvas.getContext("2d");
@@ -23,6 +26,11 @@ window.addEventListener("load", () => {
     if (!isPainting) return;
     environment.lineWidth = 5;
     environment.lineCap = "round";
+
+    // random color
+    environment.strokeStyle = randomColor;
+
+    //
     environment.lineTo(event.clientX, event.clientY);
     environment.stroke();
     environment.beginPath();
